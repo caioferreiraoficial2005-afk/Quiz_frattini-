@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Qual site o seu negócio precisa?</title>
-<meta name="description" content="Responda algumas perguntas rápidas e receba uma recomendação de site para o seu negócio.">
+<title>Vamos conhecer o seu negócio</title>
+<meta name="description" content="Responda algumas perguntas rápidas sobre o seu negócio.">
 <meta name="theme-color" content="#ffffff">
 <style>
 :root{--azul:#1a73e8;--texto:#202124;--cinza:#5f6368;--linha:#dadce0;--fundo:#f1f3f4;--erro:#d93025;--verde:#25D366}
@@ -14,32 +14,32 @@ body{margin:0;background:var(--fundo);color:var(--texto);font-family:Roboto,"Seg
 .pagina{max-width:640px;margin:0 auto;padding:12px 12px 40px}
 .cartao{background:#fff;border:1px solid var(--linha);border-radius:8px;padding:22px 20px;margin-bottom:12px}
 .cabeca{border-top:8px solid var(--azul)}
-.cabeca h1{margin:0 0 8px;font-size:26px;font-weight:400;line-height:1.25}
+.cabeca h1{margin:0 0 6px;font-size:24px;font-weight:400;line-height:1.3}
 .cabeca p{margin:0;color:var(--cinza);font-size:15px}
-.cabeca .obg{margin-top:14px;padding-top:12px;border-top:1px solid var(--linha);color:var(--erro);font-size:14px}
-.q h2{margin:0 0 16px;font-size:16px;font-weight:500}
+.progresso{margin-top:16px;height:6px;background:#e8eaed;border-radius:3px;overflow:hidden}
+.progresso i{display:block;height:100%;width:0;background:var(--azul);transition:width .35s ease}
+.passo-n{margin-top:8px;font-size:13px;color:var(--cinza)}
+.q{animation:entra .3s ease}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.q h2{margin:0 0 16px;font-size:17px;font-weight:500}
 .q h2 b{color:var(--erro);font-weight:400}
-.q.invalida{border-color:var(--erro)}
-.q .msg{display:none;color:var(--erro);font-size:13px;margin-top:10px}
-.q.invalida .msg{display:block}
-.q[hidden]{display:none}
-label.op{display:flex;align-items:center;gap:14px;padding:9px 0;cursor:pointer;font-size:15px}
+label.op{display:flex;align-items:center;gap:14px;padding:11px 0;cursor:pointer;font-size:15px}
 label.op input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin:0;border:2px solid var(--cinza);border-radius:50%;display:grid;place-items:center;cursor:pointer}
 label.op input::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--azul);transform:scale(0);transition:transform .12s}
 label.op input:checked{border-color:var(--azul)}
 label.op input:checked::before{transform:scale(1)}
-label.op input:focus-visible{outline:2px solid var(--azul);outline-offset:3px}
-.txt{width:100%;font:inherit;font-size:15px;border:0;border-bottom:1px solid var(--linha);padding:8px 0;outline:none;background:transparent}
+.txt{width:100%;font:inherit;font-size:16px;border:0;border-bottom:1px solid var(--linha);padding:8px 0;outline:none;background:transparent;margin-bottom:6px}
 .txt:focus{border-bottom:2px solid var(--azul);padding-bottom:7px}
-.rodape{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+.msg{display:none;color:var(--erro);font-size:13px;margin-top:6px}
+.q.invalida{border-color:var(--erro)}
+.q.invalida .msg{display:block}
+.rodape{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .btn{background:var(--azul);color:#fff;border:0;border-radius:4px;padding:10px 24px;font:inherit;font-weight:500;font-size:15px;cursor:pointer}
 .btn:hover{background:#1765cc}
-.limpar{background:none;border:0;color:var(--azul);font:inherit;font-size:14px;cursor:pointer;padding:8px}
-
-/* final */
-#final{display:none}
-#final h1{margin:0 0 8px;font-size:24px;font-weight:400;line-height:1.3}
-#final p{margin:0 0 6px;color:var(--cinza)}
+.btn.sec{background:#fff;color:var(--azul);border:1px solid var(--linha)}
+.btn[hidden]{visibility:hidden;display:inline-block}
+.video-unico{height:min(52svh,520px);width:auto;max-width:100%;margin:0 auto;display:block;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#000}
+.legenda{font-size:13px;color:var(--cinza);text-align:center;margin-top:8px}
 .whats{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:18px 0 6px;background:var(--verde);color:#fff;text-decoration:none;border-radius:6px;padding:15px 18px;font-weight:600;font-size:17px}
 .whats svg{width:22px;height:22px;flex:none}
 .nota{font-size:13px;color:var(--cinza);text-align:center}
@@ -50,157 +50,169 @@ label.op input:focus-visible{outline:2px solid var(--azul);outline-offset:3px}
 .grade figure{margin:0;flex:0 0 72%;max-width:300px;scroll-snap-align:start}
 .grade video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;display:block;background:#000}
 .grade figcaption{font-size:13px;color:var(--cinza);margin-top:6px}
-.dica{font-size:13px;color:var(--cinza);margin-top:8px}
 </style>
 </head>
 <body>
 <main class="pagina">
-
-<form id="form" novalidate>
   <div class="cartao cabeca">
-    <h1>Qual site o seu negócio precisa?</h1>
-    <p>Responda as perguntas abaixo. Leva menos de 1 minuto.</p>
-    <div class="obg">* Indica uma pergunta obrigatória</div>
+    <h1 id="h-tit">Vamos conhecer o seu negócio</h1>
+    <p id="h-sub">Responda algumas perguntas rápidas para a gente entender o que você precisa.</p>
+    <div id="h-prog"><div class="progresso"><i id="prog"></i></div><div class="passo-n" id="passo-n"></div></div>
   </div>
-  <div id="perguntas"></div>
-  <div class="rodape">
-    <button type="submit" class="btn">Enviar</button>
-    <button type="button" class="limpar" id="limpar">Limpar formulário</button>
-  </div>
-</form>
-
-<section id="final">
-  <div class="cartao cabeca">
-    <h1 id="f-tit">Pronto! Recebemos as suas respostas.</h1>
-    <p id="f-sub">Toque no botão abaixo para falar com a gente no WhatsApp. A sua mensagem já vai pronta.</p>
-    <a class="whats" id="whats" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.2 1.3 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4z"/></svg>
-      Falar no WhatsApp
-    </a>
-    <div class="nota">Atendemos todo o Brasil · Site no ar em até 48h</div>
-  </div>
-  <div class="cartao exemplos" id="exemplos">
-    <h2 id="e-tit">Exemplos de sites que fizemos</h2>
-    <p id="e-sub">Projetos conceito feitos por nós. Arraste para o lado para ver os outros.</p>
-    <div class="grade" id="grade"></div>
-  </div>
-</section>
-
+  <div id="palco"></div>
 </main>
+
 <script>
 (function(){
   var WHATS = "5582988224653";
+  var ZAP = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.2 1.3 15.2 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.6-8.4z"/></svg>';
 
-  var Q = [
+  var NICHO = {
+    marca:{t:"O que a sua marca vende?",ops:["Moda e acessórios","Comida e bebida","Beleza e cosméticos","Outro produto"]},
+    profissional:{t:"Qual é a sua área?",ops:["Advocacia","Saúde (dentista, médico, psicólogo, nutricionista...)","Estética e beleza","Consultoria e outros"]},
+    restaurante:{t:"Qual é o seu tipo de comércio?",ops:["Restaurante","Delivery","Doceria ou lanchonete","Café ou bar"]},
+    outro:{t:"Qual é o seu ramo?",ops:["Loja física","Academia ou esporte","Pet shop","Educação ou cursos","Serviços em geral","Outro"]}
+  };
+
+  /* passos: pergunta de opção, vídeo no meio, texto */
+  var PASSOS = [
     {id:"tipo",t:"Qual é o seu tipo de negócio?",ops:[
       ["marca","Marca ou produto (roupas, bebidas, cosméticos...)"],
       ["profissional","Profissional liberal (advogado, dentista, psicólogo...)"],
       ["restaurante","Restaurante, delivery, doceria ou café"],
       ["outro","Outro tipo de negócio"]]},
-    {id:"nicho",t:"O que você vende ou faz?",se:"marca",ops:["Moda e acessórios","Comida e bebida","Beleza e cosméticos","Outro produto"]},
-    {id:"nicho",t:"Qual é a sua área?",se:"profissional",ops:["Advocacia","Saúde (dentista, médico, psicólogo, nutricionista...)","Estética e beleza","Consultoria e outros"]},
-    {id:"nicho",t:"Qual é o seu tipo de comércio?",se:"restaurante",ops:["Restaurante","Delivery","Doceria ou lanchonete","Café ou bar"]},
-    {id:"nicho",t:"Qual é o seu ramo?",se:"outro",ops:["Loja física","Academia ou esporte","Pet shop","Educação ou cursos","Serviços em geral","Outro"]},
+    {id:"nicho",dinamico:true},
     {id:"canal",t:"Hoje, como os clientes te encontram?",ops:["Instagram","Indicação","Google ou aplicativos (iFood, Doctoralia...)","Quase ninguém me encontra"]},
+    {id:"_video"},
     {id:"objetivo",t:"O que você mais quer com o site?",ops:["Vender mais","Passar mais credibilidade","Receber pedidos ou agendamentos","Aparecer no Google"]},
     {id:"site",t:"Você já tem site?",ops:["Ainda não tenho","Tenho, mas não gosto dele","Tenho e quero melhorar"]},
     {id:"prazo",t:"Quando você quer o site no ar?",ops:["O mais rápido possível","No próximo mês","Só estou pesquisando"]},
-    {id:"nome",t:"Seu nome",txt:true,ph:"Sua resposta"},
-    {id:"negocio",t:"Nome do seu negócio",txt:true,ph:"Sua resposta",opc:true}
+    {id:"nome",t:"Qual é o seu nome?",txt:true,ac:"given-name"},
+    {id:"negocio",t:"Qual é o nome do seu negócio?",txt:true,ac:"organization",opc:true}
   ];
+  var TOTAL_PERG = PASSOS.filter(function(p){return p.id!=="_video"}).length;
 
   var FRASE = {marca:"a minha marca",profissional:"o meu trabalho como profissional",restaurante:"o meu restaurante",outro:"o meu negócio"};
   var EX = {
-    marca:{t:"Exemplos de sites para marcas",l:[["cerveja","Fratta Cerveja"],["energy","Fratta Energy"],["cafe","Fratta Café"]]},
-    restaurante:{t:"Exemplos de sites para restaurantes",l:[["burger","Fratta Burger"],["gelato","Fratta Gelato"],["cafe","Fratta Café"]]},
-    outro:{t:"Exemplos de sites que fizemos",l:[["burger","Fratta Burger"],["energy","Fratta Energy"],["gelato","Fratta Gelato"]]},
-    profissional:{t:"Exemplos de sites que fizemos",l:[["cafe","Fratta Café"],["burger","Fratta Burger"],["energy","Fratta Energy"]]}
+    marca:{t:"Sites que fizemos para marcas",l:[["cerveja","Fratta Cerveja"],["cafe","Fratta Café"],["energy","Fratta Energy"]]},
+    restaurante:{t:"Sites que fizemos para restaurantes",l:[["burger","Fratta Burger"],["gelato","Fratta Gelato"],["cafe","Fratta Café"]]},
+    profissional:{t:"Alguns sites que fizemos",l:[["burger","Fratta Burger"],["gelato","Fratta Gelato"],["cafe","Fratta Café"],["energy","Fratta Energy"]]},
+    outro:{t:"Alguns sites que fizemos",l:[["burger","Fratta Burger"],["gelato","Fratta Gelato"],["cafe","Fratta Café"],["energy","Fratta Energy"]]}
+  };
+  var MEIO = {
+    marca:"Olha um site que a gente fez para uma marca:",
+    restaurante:"Olha um site que a gente fez para uma hamburgueria:",
+    profissional:"Enquanto isso, olha um dos sites que a gente fez:",
+    outro:"Enquanto isso, olha um dos sites que a gente fez:"
   };
 
-  var box = document.getElementById("perguntas");
-  var h = "";
-  Q.forEach(function(q,k){
-    var nome = q.id + (q.se ? "_"+q.se : "");
-    h += '<div class="cartao q" data-k="'+k+'"'+(q.se?' data-se="'+q.se+'" hidden':'')+'><h2>'+q.t+(q.opc?'':' <b>*</b>')+'</h2>';
-    if(q.txt){
-      h += '<input class="txt" name="'+nome+'" placeholder="'+q.ph+'" autocomplete="'+(q.id==="nome"?"given-name":"organization")+'">';
+  var resp = {}, i = 0;
+  var palco = document.getElementById("palco");
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+  function track(n,d){ try{ if(window.fbq) fbq('trackCustom',n,d||{}); }catch(_){} }
+
+  function numPergunta(){ var n=0; for(var k=0;k<=i;k++){ if(PASSOS[k].id!=="_video") n++; } return n; }
+  function cabecalho(){
+    var n = numPergunta();
+    document.getElementById("prog").style.width = ((n-1)/TOTAL_PERG*100)+"%";
+    document.getElementById("passo-n").textContent = PASSOS[i].id==="_video" ? "Uma pausa rápida" : "Pergunta "+n+" de "+TOTAL_PERG;
+  }
+  function rodape(proxTxt){
+    return '<div class="rodape"><button type="button" class="btn sec" id="voltar"'+(i===0?' hidden':'')+'>Voltar</button>'
+      +(proxTxt?'<button type="button" class="btn" id="prox">'+proxTxt+'</button>':'')+'</div>';
+  }
+  function ligarVoltar(){ var v=document.getElementById("voltar"); if(v) v.onclick=function(){ if(i>0){ i--; render(); } }; }
+
+  function render(){
+    var p = PASSOS[i];
+    cabecalho();
+    window.scrollTo(0,0);
+
+    if(p.id==="_video"){
+      var ex = EX[resp.tipo].l[0];
+      palco.innerHTML = '<div class="cartao q"><h2>'+MEIO[resp.tipo]+'</h2>'
+        +'<video class="video-unico" src="assets/video/'+ex[0]+'.mp4" poster="assets/video/'+ex[0]+'.jpg" muted loop playsinline autoplay preload="auto"></video>'
+        +'<div class="legenda">'+ex[1]+' · projeto conceito</div></div>'+rodape("Continuar");
+      var v = palco.querySelector("video"); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){});
+      document.getElementById("prox").onclick=function(){ i++; render(); };
+      ligarVoltar(); track("QuizVideoMeio",{caminho:resp.tipo}); return;
+    }
+
+    var tit = p.dinamico ? NICHO[resp.tipo].t : p.t;
+    var ops = p.dinamico ? NICHO[resp.tipo].ops : p.ops;
+    var h = '<div class="cartao q"><h2>'+tit+(p.opc?'':' <b>*</b>')+'</h2>';
+    if(p.txt){
+      h += '<input class="txt" id="campo" placeholder="Sua resposta" autocomplete="'+p.ac+'" value="'+esc(resp[p.id]||"")+'"><div class="msg">Esta pergunta é obrigatória</div></div>';
+      h += rodape(i===PASSOS.length-1 ? "Enviar" : "Próxima");
+      palco.innerHTML = h;
+      var campo = document.getElementById("campo");
+      var ir = function(){
+        var v = campo.value.trim();
+        if(!v && !p.opc){ palco.querySelector(".q").classList.add("invalida"); campo.focus(); return; }
+        resp[p.id] = v;
+        if(i===PASSOS.length-1) final(); else { i++; render(); }
+      };
+      document.getElementById("prox").onclick = ir;
+      campo.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); ir(); } });
+      campo.addEventListener("input",function(){ palco.querySelector(".q").classList.remove("invalida"); });
+      setTimeout(function(){ try{campo.focus({preventScroll:true})}catch(_){} },50);
     } else {
-      q.ops.forEach(function(o){
+      ops.forEach(function(o){
         var v = Array.isArray(o)?o[0]:o, t = Array.isArray(o)?o[1]:o;
-        h += '<label class="op"><input type="radio" name="'+nome+'" value="'+v+'"><span>'+t+'</span></label>';
+        h += '<label class="op"><input type="radio" name="r" value="'+esc(v)+'"'+(resp[p.id]===v?' checked':'')+'><span>'+t+'</span></label>';
       });
-    }
-    h += '<div class="msg">Esta pergunta é obrigatória</div></div>';
-  });
-  box.innerHTML = h;
-
-  var form = document.getElementById("form");
-  function val(n){ var el = form.elements[n]; if(!el) return ""; return (el.value||"").trim(); }
-  function tipo(){ return val("tipo"); }
-
-  form.addEventListener("change", function(e){
-    if(e.target.name==="tipo"){
-      box.querySelectorAll("[data-se]").forEach(function(c){
-        var mostrar = c.dataset.se===tipo();
-        c.hidden = !mostrar;
-        if(!mostrar) c.querySelectorAll("input").forEach(function(i){i.checked=false});
+      h += '</div>' + rodape(resp[p.id] ? "Próxima" : "");
+      palco.innerHTML = h;
+      palco.querySelectorAll('input[type=radio]').forEach(function(r){
+        r.addEventListener("change",function(){
+          if(p.id==="tipo" && resp.tipo && resp.tipo!==r.value) delete resp.nicho;
+          resp[p.id] = r.value;
+          track("QuizPergunta",{pergunta:p.id,resposta:r.value});
+          setTimeout(function(){ i++; render(); }, 280);
+        });
       });
+      var pb = document.getElementById("prox"); if(pb) pb.onclick=function(){ i++; render(); };
     }
-    var c = e.target.closest(".q"); if(c) c.classList.remove("invalida");
-  });
-  form.addEventListener("input", function(e){ var c=e.target.closest(".q"); if(c && e.target.value.trim()) c.classList.remove("invalida"); });
+    ligarVoltar();
+  }
 
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var primeiro = null;
-    box.querySelectorAll(".q").forEach(function(c){
-      if(c.hidden) return;
-      var q = Q[c.dataset.k]; if(q.opc) return;
-      var nome = q.id + (q.se?"_"+q.se:"");
-      if(!val(nome)){ c.classList.add("invalida"); if(!primeiro) primeiro=c; }
-    });
-    if(primeiro){ primeiro.scrollIntoView({behavior:"smooth",block:"center"}); return; }
-
-    var t = tipo(), nicho = val("nicho_"+t), neg = val("negocio"), prazo = val("prazo");
+  function final(){
+    var t = resp.tipo;
     var linhas = [];
-    if(prazo==="O mais rápido possível") linhas.push("[URGENTE]");
-    linhas.push("Oi! Sou "+val("nome")+(neg?", da "+neg:"")+".");
-    linhas.push("Respondi o formulário e quero um site para "+FRASE[t]+" ("+nicho+").");
-    linhas.push("Objetivo: "+val("objetivo")+".");
-    linhas.push("Hoje os clientes me encontram por: "+val("canal")+".");
-    linhas.push("Já tenho site? "+val("site")+".");
-    linhas.push("Prazo: "+prazo+".");
-    document.getElementById("whats").href = "https://wa.me/"+WHATS+"?text="+encodeURIComponent(linhas.join("\n"));
+    if(resp.prazo==="O mais rápido possível") linhas.push("[URGENTE]");
+    linhas.push("Oi! Sou "+resp.nome+(resp.negocio?", da "+resp.negocio:"")+".");
+    linhas.push("Respondi o formulário e quero um site para "+FRASE[t]+" ("+resp.nicho+").");
+    linhas.push("Objetivo: "+resp.objetivo+".");
+    linhas.push("Hoje os clientes me encontram por: "+resp.canal+".");
+    linhas.push("Já tenho site? "+resp.site+".");
+    linhas.push("Prazo: "+resp.prazo+".");
+    var link = "https://wa.me/"+WHATS+"?text="+encodeURIComponent(linhas.join("\n"));
+
+    document.getElementById("h-tit").textContent = "Obrigado, "+resp.nome+"!";
+    document.getElementById("h-sub").textContent = "Já entendemos o seu negócio. Agora é só falar com a gente no WhatsApp. A sua mensagem já vai pronta.";
+    document.getElementById("h-prog").style.display = "none";
 
     var ex = EX[t];
-    document.getElementById("e-tit").textContent = ex.t;
-    var grade = document.getElementById("grade");
-    grade.innerHTML = ex.l.map(function(x,n){
-      return '<figure><video src="assets/video/'+x[0]+'.mp4" poster="assets/video/'+x[0]+'.jpg" muted loop playsinline preload="'+(n===0?'auto':'metadata')+'" aria-label="Vídeo do site '+x[1]+'"></video><figcaption>'+x[1]+'</figcaption></figure>';
-    }).join("");
-    var vids = grade.querySelectorAll("video");
+    palco.innerHTML =
+      '<div class="cartao q"><a class="whats" id="whats" href="'+link+'" target="_blank" rel="noopener">'+ZAP+'Falar no WhatsApp</a>'
+      +'<div class="nota">Atendemos todo o Brasil · Site no ar em até 48h</div></div>'
+      +'<div class="cartao exemplos"><h2>'+ex.t+'</h2><p>Projetos conceito feitos por nós. Arraste para o lado para ver os outros.</p><div class="grade" id="grade">'
+      + ex.l.map(function(x,n){ return '<figure><video src="assets/video/'+x[0]+'.mp4" poster="assets/video/'+x[0]+'.jpg" muted loop playsinline preload="'+(n===0?'auto':'metadata')+'"></video><figcaption>'+x[1]+'</figcaption></figure>'; }).join("")
+      +'</div></div>';
+    window.scrollTo(0,0);
+
+    var vids = palco.querySelectorAll(".grade video");
     if("IntersectionObserver" in window){
       var io = new IntersectionObserver(function(es){
-        es.forEach(function(e){ if(e.intersectionRatio>0.6){ var p=e.target.play(); if(p&&p.catch)p.catch(function(){}); } else e.target.pause(); });
+        es.forEach(function(e){ if(e.intersectionRatio>0.6){ var pr=e.target.play(); if(pr&&pr.catch)pr.catch(function(){}); } else e.target.pause(); });
       },{threshold:[0,0.6,1]});
       vids.forEach(function(v){ io.observe(v); });
-    } else { vids.forEach(function(v){ v.autoplay=true; }); }
-
+    }
+    document.getElementById("whats").addEventListener("click",function(){ try{ if(window.fbq) fbq('track','Lead',{content_category:t}); }catch(_){} });
     try{ if(window.fbq) fbq('track','CompleteRegistration',{content_category:t}); }catch(_){}
-    form.style.display = "none";
-    document.getElementById("final").style.display = "block";
-    window.scrollTo(0,0);
-  });
+  }
 
-  document.getElementById("whats").addEventListener("click",function(){
-    try{ if(window.fbq) fbq('track','Lead',{content_category:tipo()}); }catch(_){}
-  });
-  document.getElementById("limpar").onclick = function(){
-    form.reset();
-    box.querySelectorAll("[data-se]").forEach(function(c){c.hidden=true});
-    box.querySelectorAll(".q").forEach(function(c){c.classList.remove("invalida")});
-    window.scrollTo(0,0);
-  };
+  render();
 })();
 </script>
 </body>
